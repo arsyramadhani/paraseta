@@ -1,0 +1,5 @@
+function Welcome1() {
+    return <div>Welcome1</div>;
+}
+
+export default Welcome1;
