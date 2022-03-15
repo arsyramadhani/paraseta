@@ -9,12 +9,12 @@ const initialState = [
             preset: 'WELCOME1',
             style: {
                 display: 'flex flex-col',
-                align: 'items-center justify-center',
-                bg: 'bg-gray-300',
+                align: 'items-center justify-end',
+                bg: 'bg-gray-400',
                 fontSize: 'text-md',
-                padding: 'px-2 py-2',
+                padding: 'px-2 py-8',
                 textAlign: 'text-center',
-                height: 'h-[500px]'
+                height: 'min-h-[300px]'
             }
         }
     },
@@ -25,8 +25,8 @@ const initialState = [
         properties: {
             preset: 'PERSON1',
             style: {
-                bg: 'bg-gray-400',
-                height: 'h-full',
+                bg: 'bg-gray-200',
+                height: 'h-[200px]',
                 padding: 'px-4 py-8',
                 textColor: 'text-gray-500'
             }

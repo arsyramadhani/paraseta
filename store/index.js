@@ -7,7 +7,7 @@ const store = configureStore({
     reducer: {
         appstate: appStateReducer,
         sections: sectionsReducer,
-        widget: widgetsReducer
+        widgets: widgetsReducer
     },
     devTools: true
 });

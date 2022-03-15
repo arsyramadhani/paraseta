@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 function useTailwindClass(data) {
-    console.log(data);
     const [style, setStyle] = useState(' ');
 
     useEffect(() => {

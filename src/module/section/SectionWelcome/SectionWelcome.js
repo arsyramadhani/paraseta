@@ -1,9 +1,43 @@
-import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import useTailwindClass from '../../../../utils/useTailwindClass';
 
-export default function SectionWelcome({ data }) {
-    const style = useTailwindClass(data.properties.style);
-    console.log(style);
-    return <div className={style}>xxasdadsd</div>;
+const TextEditor = dynamic(() =>
+    import('../../../common/TextEditor/TextEditor')
+);
+
+export default function SectionWelcome({ data, style, widgets }) {
+    // const style = useTailwindClass(data.properties.style);
+    return (
+        <div className={style}>
+            {widgets.map(widget => ComponentsSelector(widget))}
+        </div>
+    );
 }
+
+function ComponentsSelector(widget) {
+    console.log(widget);
+    switch (widget.type) {
+        case 'text':
+            return (
+                <TextEditor
+                    key={widget.id}
+                    value={widget.properties.title}
+                    className={useTailwindClass(widget.properties.style)}
+                    onChange={e => {}}
+                />
+            );
+
+        default:
+            return <div>No Component Provided</div>;
+    }
+}
+
+// <div className={containerClass}>
+//     <TextEditor
+//         value={value}
+//         onChange={e => {
+//             console.log(e);
+//             setValue(e);
+//         className='text-red-500'
+//     />
+// </div>

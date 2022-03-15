@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentWorkspace } from '../../../store/appStateReducer';
-
+import useTailwindClass from '../../../utils/useTailwindClass';
 const CONSTANT = {
     WELCOME: 'WELCOME',
     PERSON: 'PERSON'
@@ -11,13 +11,32 @@ const CONSTANT = {
 const sectionType = {
     WELCOME: dynamic(() =>
         import('../../module/section/SectionWelcome/SectionWelcome')
+    ),
+    PERSON: dynamic(() =>
+        import('../../module/section/SectionPerson/SectionPerson')
     )
 };
 
-const FilterSectionType = ({ key, data }) => {
+const FilterSectionType = ({ key, data, widgets }) => {
     switch (data.type) {
         case CONSTANT.WELCOME:
-            return <sectionType.WELCOME key={key} data={data} />;
+            return (
+                <sectionType.WELCOME
+                    key={key}
+                    data={data}
+                    style={useTailwindClass(data.properties.style)}
+                    widgets={widgets}
+                />
+            );
+        case CONSTANT.PERSON:
+            return (
+                <sectionType.PERSON
+                    key={key}
+                    data={data}
+                    style={useTailwindClass(data.properties.style)}
+                    widgets={widgets}
+                />
+            );
         default:
             break;
     }
@@ -26,6 +45,7 @@ const FilterSectionType = ({ key, data }) => {
 export default function FrameEditor({ workspaceId }) {
     const { currentWorkspace } = useSelector(state => state.appstate);
     const sections = useSelector(state => state.sections);
+    const widgets = useSelector(state => state.widgets);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,51 +61,21 @@ export default function FrameEditor({ workspaceId }) {
             </div>
         );
     }
-    // console.log(sections);
     return (
         <div className='w-80'>
             <Suspense fallback={<FallbackComponents />}>
-                {sections.map(data => {
-                    // let styles = Object.keys(data.properties.style || []).map(
-                    //     val => data.properties.style[val]
-                    // );
-                    return FilterSectionType({ key: data.id, data });
-                })}
+                {sections.map(data =>
+                    FilterSectionType({
+                        key: data.id,
+                        data,
+                        widgets: widgets.filter(id => data.id === id.sectionId)
+                    })
+                )}
             </Suspense>
         </div>
     );
 }
 
 const FallbackComponents = () => {
-    return (
-        <div className='h-full flex flex-col justify-center'>
-            Loading Components
-        </div>
-    );
+    return <div className='h-full flex flex-col justify-center'>Loading</div>;
 };
-// <div className={containerClass}>
-//     <TextEditor
-//         value={value}
-//         onChange={e => {
-//             console.log(e);
-//             setValue(e);
-//         className='text-red-500'
-//     />
-// </div>
-
-/* {data.sections.map(n => {
-                let styles = Object.keys(n.properties.style || []).map(
-                    val => n.properties.style[val]
-                );
-                return (
-                    <div key={n.id} className={classNames(styles)}>
-                        {data.widgets.map(w => {
-                            return (
-                                w.sectionId === n.id && (
-                                    <div key={w.sectionId}>{n.id}</div>
-                                )
-                            );
-                        })}
-                    </div>
-                );
-            })} */
