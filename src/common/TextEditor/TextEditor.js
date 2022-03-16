@@ -7,7 +7,8 @@ export default function TextEditor({
     onChange = e => {
         return e;
     },
-    value = ''
+    value = '',
+    isReadOnly = false
 }) {
     const editor = useMemo(() => withReact(createEditor()), []);
     const [stateValue, setStateValue] = useState([
@@ -25,7 +26,7 @@ export default function TextEditor({
                 setStateValue(newValue);
                 onChange(serialize(newValue));
             }}>
-            <Editable className={className} />
+            <Editable className={'w-full ' + className} />
         </Slate>
     );
 }

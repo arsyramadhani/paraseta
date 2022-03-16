@@ -8,8 +8,10 @@ const initialState = [
         components: 'ModuleTextArea',
         properties: {
             preset: 'welcome_1',
-            title: 'Welcome Home',
-            style: {}
+            value: 'Wedding of',
+            style: {
+                textColor: 'text-white'
+            }
         }
     },
     {
@@ -19,10 +21,25 @@ const initialState = [
         components: 'ModuleTextArea',
         properties: {
             preset: 'welcome_1',
-            title: 'Welcome Home',
+            value: 'Andira & Rizka',
             style: {
-                fontSize: 'text-2xl',
-                fontWeight: 'font-bold'
+                fontSize: 'text-3xl ',
+                textColor: 'text-white',
+                fontWeight: 'font-bold '
+            }
+        }
+    },
+    {
+        id: '21faf4566',
+        sectionId: 'a8goao29opfoj5',
+        type: 'date',
+        components: 'ModuleTextArea',
+        properties: {
+            preset: 'date1',
+            value: new Date().toString(),
+            style: {
+                textColor: 'text-white',
+                fontSize: 'text-sm italic '
             }
         }
     },
@@ -33,7 +50,7 @@ const initialState = [
         components: 'ModuleTextArea',
         properties: {
             preset: 'welcome_1',
-            title: 'Welcome Home',
+            value: 'Welcome Home',
             style: {}
         }
     }

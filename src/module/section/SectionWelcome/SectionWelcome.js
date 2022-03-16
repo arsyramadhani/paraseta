@@ -1,4 +1,6 @@
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import useDateConverter from '../../../../utils/useDateConverter';
 import useTailwindClass from '../../../../utils/useTailwindClass';
 
 const TextEditor = dynamic(() =>
@@ -6,38 +8,52 @@ const TextEditor = dynamic(() =>
 );
 
 export default function SectionWelcome({ data, style, widgets }) {
-    // const style = useTailwindClass(data.properties.style);
     return (
-        <div className={style}>
-            {widgets.map(widget => ComponentsSelector(widget))}
+        <div className={style + ' relative '}>
+            {data.properties.imgUrl && (
+                <Image
+                    className={
+                        data.properties.imgFilter &&
+                        'filter ' + data.properties.imgFilter
+                    }
+                    src={data.properties.imgUrl}
+                    objectFit={'cover'}
+                    layout={'fill'}
+                    priority
+                />
+            )}
+            {widgets.map(widget => (
+                <WidgetWrapper key={widget.id} widget={widget} />
+            ))}
         </div>
     );
 }
 
-function ComponentsSelector(widget) {
-    console.log(widget);
+function WidgetWrapper({ widget }) {
+    console.log(widget.type);
     switch (widget.type) {
         case 'text':
             return (
                 <TextEditor
                     key={widget.id}
-                    value={widget.properties.title}
+                    value={widget.properties.value}
                     className={useTailwindClass(widget.properties.style)}
                     onChange={e => {}}
                 />
             );
-
+        case 'date':
+            return (
+                <div
+                    className={
+                        'z-10 ' + useTailwindClass(widget.properties.style)
+                    }>
+                    {useDateConverter({
+                        date: widget.properties.value,
+                        type: widget.properties.preset
+                    })}
+                </div>
+            );
         default:
-            return <div>No Component Provided</div>;
+            return <div>Widget Erroxxr</div>;
     }
 }
-
-// <div className={containerClass}>
-//     <TextEditor
-//         value={value}
-//         onChange={e => {
-//             console.log(e);
-//             setValue(e);
-//         className='text-red-500'
-//     />
-// </div>

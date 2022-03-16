@@ -56,13 +56,13 @@ export default function FrameEditor({ workspaceId }) {
 
     if (sections.length === 0) {
         return (
-            <div className='h-full flex flex-col justify-center'>
+            <div className='h-full flex flex-col justify-center '>
                 Data Tidak Tersedia
             </div>
         );
     }
     return (
-        <div className='w-80'>
+        <div className='w-[414px] '>
             <Suspense fallback={<FallbackComponents />}>
                 {sections.map(data =>
                     FilterSectionType({
