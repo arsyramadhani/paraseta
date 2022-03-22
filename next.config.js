@@ -4,6 +4,7 @@ const nextConfig = {
         domains: ['images.unsplash.com']
     },
     reactStrictMode: true,
+
     redirects: async () => {
         return [
             {

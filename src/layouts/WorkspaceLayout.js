@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
-import store from '../../store';
-import NavbarWorkspace from '../common/NavbarWorkspace/NavbarWorkspace';
+import store from '@store/index';
+import NavbarWorkspace from '@components/NavbarWorkspace/NavbarWorkspace';
 
 export default function WorkspaceLayout({
     navbar = 'default',

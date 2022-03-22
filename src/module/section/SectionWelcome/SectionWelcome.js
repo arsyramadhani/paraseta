@@ -1,11 +1,9 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import useDateConverter from '../../../../utils/useDateConverter';
-import useTailwindClass from '../../../../utils/useTailwindClass';
+import useDateConverter from '@utils/useDateConverter';
+import useTailwindClass from '@utils/useTailwindClass';
 
-const TextEditor = dynamic(() =>
-    import('../../../common/TextEditor/TextEditor')
-);
+const TextEditor = dynamic(() => import('@components/TextEditor/TextEditor'));
 
 export default function SectionWelcome({ data, style, widgets }) {
     return (

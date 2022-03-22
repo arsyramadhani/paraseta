@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { fetchWorkspace } from '../services/api';
-import MainLayout from '../src/layouts/MainLayout';
+import MainLayout from '@layouts/MainLayout';
 
 export default function Home() {
     const [workspaces, setWorkspaces] = useState([]);

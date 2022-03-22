@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import FrameEditor from '../../../src/common/FrameEditor/FrameEditor';
-import RightNav from '../../../src/common/RightNav/RightNav';
-import WorkspaceLayout from '../../../src/layouts/WorkspaceLayout';
+import FrameEditor from '@components/FrameEditor/FrameEditor';
+import RightNav from '@components/RightNav/RightNav';
+import WorkspaceLayout from '@layouts/WorkspaceLayout';
 
 export default function Design() {
     const { workspaceId } = useRouter().query;

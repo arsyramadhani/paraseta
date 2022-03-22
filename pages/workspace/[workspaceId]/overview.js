@@ -1,4 +1,4 @@
-import WorkspaceLayout from '../../../src/layouts/WorkspaceLayout';
+import WorkspaceLayout from '@layouts/WorkspaceLayout';
 
 function Overview() {
     return (

@@ -1,4 +1,4 @@
-import MainLayout from '../src/layouts/MainLayout';
+import MainLayout from '@layouts/MainLayout';
 
 function Explore() {
     return (

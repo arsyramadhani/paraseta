@@ -4,54 +4,38 @@ const initialState = [
     {
         id: '21faf4566',
         sectionId: 'a8goao29opfoj5',
-        type: 'text',
-        components: 'ModuleTextArea',
+        components: 'WYSIWYG',
         properties: {
-            preset: 'welcome_1',
             value: 'Wedding of',
             style: {
-                textColor: 'text-white'
-            }
-        }
-    },
-    {
-        id: '21asxxfaf4a',
-        sectionId: 'a8goao29opfoj5',
-        type: 'text',
-        components: 'ModuleTextArea',
-        properties: {
-            preset: 'welcome_1',
-            value: 'Andira & Rizka',
-            style: {
-                fontSize: 'text-3xl ',
                 textColor: 'text-white',
-                fontWeight: 'font-bold '
+                fontStyle: 'italic'
             }
         }
     },
     {
-        id: '21faf4566',
+        id: '8fgiasjd',
         sectionId: 'a8goao29opfoj5',
-        type: 'date',
-        components: 'ModuleTextArea',
+        components: 'WYSIWYG',
         properties: {
-            preset: 'date1',
-            value: new Date().toString(),
+            value: 'Indira and Razima',
             style: {
                 textColor: 'text-white',
-                fontSize: 'text-sm italic '
+                fontSize: 'text-2xl',
+                fontWeight: 'font-bold'
             }
         }
     },
     {
-        id: '21asxxxxa23a',
-        sectionId: 'kdfSfla223Va',
-        type: 'text',
-        components: 'ModuleTextArea',
+        id: '21faf4xxa566',
+        sectionId: 'a8goao29opfoj5',
+        components: 'WYSIWYG',
         properties: {
-            preset: 'welcome_1',
-            value: 'Welcome Home',
-            style: {}
+            value: 'We are sadasssd to invite you',
+            style: {
+                textColor: 'text-white',
+                padding: 'pt-4'
+            }
         }
     }
 ];

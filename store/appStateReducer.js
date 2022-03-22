@@ -4,8 +4,13 @@ const initialState = {
     currentWorkspace: null,
     currentSection: null,
     currentWidget: null,
-    config: {
-        width: 'w-96'
+    sectionConfig: {
+        WELCOME: true,
+        COUPLES: true,
+        PRAYER: false,
+        COUNTDOWN: false,
+        GALLERY: false,
+        MESSAGE: false
     }
 };
 
